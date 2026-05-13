@@ -4,6 +4,9 @@ import App from "@/App.vue";
 import { vuetify } from "@/plugins/vuetify";
 import { router } from "@/routes";
 import "@/scss/main.scss";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const app = createApp(App);
 

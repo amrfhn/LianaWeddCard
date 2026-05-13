@@ -20,9 +20,7 @@ export default defineConfig(({ mode }) => {
         },
       },
     },
-    plugins: [
-      vue(),
-    ],
+    plugins: [vue()],
     css: {
       preprocessorOptions: {
         scss: {
