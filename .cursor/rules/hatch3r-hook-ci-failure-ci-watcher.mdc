@@ -1,0 +1,15 @@
+---
+description: "Hook: Diagnose CI pipeline failures"
+alwaysApply: false
+---
+
+<!-- HATCH3R:BEGIN -->
+# Hook: ci-failure-ci-watcher
+
+**Event:** ci-failure
+**Agent:** ci-watcher
+
+Diagnose CI pipeline failures
+
+When this hook's event (ci-failure) is triggered, activate the ci-watcher agent.
+<!-- HATCH3R:END -->

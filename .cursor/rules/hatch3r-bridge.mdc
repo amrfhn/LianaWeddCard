@@ -1,0 +1,68 @@
+---
+description: Bridge to canonical agent instructions and mandatory orchestration directives
+alwaysApply: true
+---
+
+<!-- HATCH3R:BEGIN -->
+# Hatch3r Bridge
+
+This project uses hatch3r for agentic coding setup.
+Canonical agent instructions live at `/.agents/AGENTS.md`.
+
+## Universal Sub-Agent Pipeline
+
+Every task — board-pickup, workflow command, plain chat, single-task, or multi-task — MUST use this three-phase sub-agent pipeline. There are NO exceptions. Never implement code inline; always delegate to sub-agents.
+
+**Phase 1 — Research:** Spawn `hatch3r-researcher` for context gathering. Skip only for trivial single-line edits (typos, comment fixes, single-value config changes).
+
+**Phase 2 — Implement:** Spawn `hatch3r-implementer` for ALL code changes. One dedicated implementer per task. Never implement inline — always delegate.
+
+**Phase 3 — Quality:** Spawn ALL applicable specialists in parallel after implementation:
+- `hatch3r-reviewer` — ALWAYS (mandatory for every task)
+- `hatch3r-test-writer` — ALWAYS for code changes (mandatory, not just bugs)
+- `hatch3r-security-auditor` — ALWAYS for code changes (mandatory, not just area:security)
+- `hatch3r-docs-writer` — ALWAYS evaluate; spawn when changes affect APIs, architecture, or user-facing behavior
+- `hatch3r-lint-fixer` — when lint errors present after implementation
+- `hatch3r-a11y-auditor` — when UI/accessibility changes
+- `hatch3r-perf-profiler` — when performance-sensitive changes
+- `hatch3r-dependency-auditor` — when dependencies change
+
+For plain chat tasks without issue context: classify the task (bug/feature/refactor/QA), create synthetic issue context (title, acceptance criteria, type), then run the full pipeline above.
+
+## Mandatory Behaviors
+
+1. **Load the matching skill** before implementing any task. Read `/.agents/skills/` for the skill matching the task type (bug-fix, feature, refactor, qa-validation, etc.).
+2. **Use the Task tool** (`subagent_type: "generalPurpose"`) for all agent delegations. Launch as many independent subagents in parallel as the platform supports — no artificial concurrency limit.
+3. **Propagate rules to subagents**: include all `scope: always` rule directives in subagent prompts — subagents do not inherit the parent's rule context automatically.
+4. **Consult learnings**: check `/.agents/learnings/` for relevant pitfalls and patterns before implementation.
+
+## Agent Quick Reference
+
+| Agent | When to Use |
+|-------|-------------|
+| `hatch3r-researcher` | ALWAYS before implementation (skip only for trivial single-line edits) |
+| `hatch3r-implementer` | ALWAYS. One dedicated implementer per task — standalone, epic sub-issue, batch, or plain chat |
+| `hatch3r-reviewer` | ALWAYS after implementation, before PR |
+| `hatch3r-test-writer` | ALWAYS for code changes |
+| `hatch3r-security-auditor` | ALWAYS for code changes |
+| `hatch3r-docs-writer` | ALWAYS evaluate; spawn when documentation impact exists |
+| `hatch3r-lint-fixer` | When lint/type errors present after implementation |
+| `hatch3r-a11y-auditor` | When UI/accessibility changes |
+| `hatch3r-perf-profiler` | When performance-sensitive changes |
+| `hatch3r-dependency-auditor` | When dependencies change |
+| `hatch3r-ci-watcher` | When CI fails |
+
+See the `hatch3r-agent-orchestration` rule in `/.agents/rules/` for the full orchestration protocol.
+
+## Canonical Structure
+
+- Rules: `/.agents/rules/` (source of truth for all tool-specific rules)
+- Agents: `/.agents/agents/` (agent definitions)
+- Skills: `/.agents/skills/` (skill workflows)
+- Commands: `/.agents/commands/` (executable commands)
+- MCP: `/.agents/mcp/mcp.json` (MCP server configuration)
+- Policy: `/.agents/policy/` (guardrails and deny lists)
+
+Do not manually edit files with the `hatch3r-` prefix -- they are managed by hatch3r
+and will be overwritten on update. Create non-prefixed files for customizations.
+<!-- HATCH3R:END -->

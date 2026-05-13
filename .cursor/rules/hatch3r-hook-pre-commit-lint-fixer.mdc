@@ -1,0 +1,15 @@
+---
+description: "Hook: Auto-fix lint and formatting issues before commit"
+globs: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]
+---
+
+<!-- HATCH3R:BEGIN -->
+# Hook: pre-commit-lint-fixer
+
+**Event:** pre-commit
+**Agent:** lint-fixer
+
+Auto-fix lint and formatting issues before commit
+
+When this hook's event (pre-commit) is triggered for files matching **/*.ts, **/*.tsx, **/*.js, **/*.jsx, activate the lint-fixer agent.
+<!-- HATCH3R:END -->

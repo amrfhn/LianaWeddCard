@@ -1,0 +1,15 @@
+---
+description: "Hook: Scan for secrets and security issues before push"
+alwaysApply: false
+---
+
+<!-- HATCH3R:BEGIN -->
+# Hook: pre-push-security-auditor
+
+**Event:** pre-push
+**Agent:** security-auditor
+
+Scan for secrets and security issues before push
+
+When this hook's event (pre-push) is triggered, activate the security-auditor agent.
+<!-- HATCH3R:END -->

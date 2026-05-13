@@ -15,10 +15,14 @@
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
+    "add-to-calendar-button": "^2.14.0",
     "axios": "^1.7.9",
+    "gsap": "^3.15.0",
+    "hatch3r": "^1.0.0",
     "pinia": "^2.3.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
+    "vue3-countdown": "^1.0.6",
     "vuetify": "^3.7.6"
   },
   "devDependencies": {

@@ -1,0 +1,15 @@
+---
+description: "Hook: Load relevant learnings at session start"
+alwaysApply: false
+---
+
+<!-- HATCH3R:BEGIN -->
+# Hook: session-start-learnings
+
+**Event:** session-start
+**Agent:** learnings-loader
+
+Load relevant learnings at session start
+
+When this hook's event (session-start) is triggered, activate the learnings-loader agent.
+<!-- HATCH3R:END -->

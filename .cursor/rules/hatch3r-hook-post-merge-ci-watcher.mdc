@@ -1,0 +1,15 @@
+---
+description: "Hook: Check CI pipeline status after merge"
+alwaysApply: false
+---
+
+<!-- HATCH3R:BEGIN -->
+# Hook: post-merge-ci-watcher
+
+**Event:** post-merge
+**Agent:** ci-watcher
+
+Check CI pipeline status after merge
+
+When this hook's event (post-merge) is triggered, activate the ci-watcher agent.
+<!-- HATCH3R:END -->
