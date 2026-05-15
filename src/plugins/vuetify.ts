@@ -50,4 +50,9 @@ export const vuetify = createVuetify({
       dark: darkTheme,
     },
   },
+  defaults: {
+    VBtn: {
+      fontFamily: "'Cormorant Garamond', serif",
+    },
+  },
 });

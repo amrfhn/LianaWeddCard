@@ -1,15 +1,13 @@
 <template>
   <div>
-    <h4 class="text-h6 font-weight-bold mb-2 text-uppercase">RSVP</h4>
-    <p class="text-body-2 mb-6">Sila sahkan kehadiran anda</p>
-
     <v-form ref="rsvpFormRef" v-model="isFormValid" @submit.prevent="onSubmit">
       <v-text-field
         v-model="form.fullName"
         label="Nama Penuh"
+        class="text-left font-georgia font-italic mb-4"
         variant="outlined"
         density="comfortable"
-        :rules="[(v: string) => !!v || 'Nama penuh diperlukan']"
+        :rules="[(v: string) => !!v || 'Sila isikan nama penuh anda']"
         required
       />
 
@@ -17,9 +15,10 @@
         v-model="form.pax"
         :items="paxOptions"
         label="Bilangan Kehadiran"
+        class="text-left font-georgia font-italic mb-4 text-body-2"
         variant="outlined"
         density="comfortable"
-        :rules="[(v: number) => !!v || 'Sila pilih bilangan kehadiran']"
+        :rules="[(v: number) => !!v || 'Sila pilih bilangan kehadiran (pax)']"
         required
       />
 
@@ -27,6 +26,7 @@
         v-model="form.guestType"
         :items="multiOptions"
         label="Jenis Jemputan"
+        class="text-left font-georgia font-italic mb-4 text-body-2"
         variant="outlined"
         density="comfortable"
         multiple

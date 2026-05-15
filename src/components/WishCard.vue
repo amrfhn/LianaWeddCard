@@ -6,11 +6,11 @@
           <span class="text-h5">{{ randomEmoji }}</span>
         </v-avatar>
         <div class="flex-grow-1">
-          <div class="d-flex justify-space-between align-center mb-2">
-            <h4 class="text-subtitle-1 font-weight-bold">{{ name }}</h4>
-            <span v-if="date" class="text-caption text-medium-emphasis">{{ formattedDate }}</span>
+          <div class="d-flex justify-space-between align-center my-2">
+            <p class="text-body-2 font-weight-bold font-georgia text-left">{{ name }}</p>
+            <span v-if="date" class="text-caption text-medium-emphasis font-georgia font-italic">{{ formattedDate }}</span>
           </div>
-          <p class="text-body-2">{{ message }}</p>
+          <p class="text-body-1 font-georgia font-italic text-left">{{ message }}</p>
         </div>
       </div>
     </v-card-text>

@@ -8,3 +8,49 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+// Font family utilities
+.font-cormorant {
+  font-family: "Cormorant Garamond", "Roboto", serif !important;
+}
+
+.font-georgia {
+  font-family: "Georgia Pro Cond", "Georgia", serif !important;
+}
+
+.font-brittany {
+  font-family: "Brittany", cursive !important;
+}
+
+.font-malibu {
+  font-family: "Malibu", sans-serif !important;
+}
+
+// Letter spacing utilities
+.letter-spacing-5 {
+  letter-spacing: 5px !important;
+}
+
+.letter-spacing-2 {
+  letter-spacing: 2px !important;
+}
+
+// Combined utilities for common patterns
+.georgia-heading {
+  font-family: "Georgia Pro Cond", "Georgia", serif !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  letter-spacing: 5px !important;
+}
+
+.georgia-label {
+  font-family: "Georgia Pro Cond", "Georgia", serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 5px !important;
+}
+
+.georgia-info {
+  font-family: "Georgia Pro Cond", "Georgia", serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+}

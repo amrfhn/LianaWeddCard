@@ -6,8 +6,12 @@
 
 body {
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Cormorant Garamond", "Roboto", serif;
   background-color: #e0e0e0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Georgia Pro Cond", "Georgia", serif;
 }
 
 #app {

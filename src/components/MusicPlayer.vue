@@ -3,7 +3,7 @@
     <v-btn
       :icon="isPlaying ? 'mdi-pause' : 'mdi-play'"
       :color="isPlaying ? 'primary' : 'grey'"
-      size="large"
+      size="medium"
       elevation="4"
       :class="{ 'rotating': isPlaying }"
       @click="togglePlay"
@@ -82,7 +82,7 @@ onUnmounted(() => {
 <style scoped>
 .music-player {
   position: fixed;
-  bottom: 65px;
+  bottom: 70px;
   right: 5px;
   z-index: 999;
 }
