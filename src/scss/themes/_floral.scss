@@ -1,0 +1,16 @@
+// Floral theme — warm, romantic, soft pinks & golds
+// Vuetify colors are registered in vuetify.ts under theme name "floral"
+
+.theme-floral {
+  // Decorative section accents
+  .countdown-section {
+    border-color: rgba(160, 120, 90, 0.2);
+    background: linear-gradient(135deg, #fff0e8 0%, #fef3e8 100%);
+  }
+
+  .georgia-heading,
+  .georgia-info,
+  .georgia-label {
+    color: #7a5540;
+  }
+}

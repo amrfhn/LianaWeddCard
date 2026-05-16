@@ -1,0 +1,27 @@
+// Minimalist theme — clean, modern, monochrome
+// Vuetify colors are registered in vuetify.ts under theme name "minimalist"
+
+.theme-minimalist {
+  // Font overrides: no decorative cursive or display fonts
+  --card-font-script: 'Georgia Pro Cond', 'Georgia', serif;
+  --card-font-ampersand: 'Georgia Pro Cond', 'Georgia', serif;
+
+  .countdown-section {
+    border-color: rgba(44, 44, 44, 0.12);
+    background: #f5f5f5;
+  }
+
+  .georgia-heading {
+    letter-spacing: 8px;
+  }
+
+  .georgia-info,
+  .georgia-label {
+    letter-spacing: 4px;
+  }
+
+  // Script text gets italic treatment instead of cursive
+  .font-brittany {
+    font-style: italic;
+  }
+}

@@ -1,0 +1,18 @@
+// Rustic theme — earthy, warm, natural browns & amber
+// Vuetify colors are registered in vuetify.ts under theme name "rustic"
+
+.theme-rustic {
+  .countdown-section {
+    border-color: rgba(93, 64, 55, 0.2);
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  }
+
+  .georgia-heading,
+  .georgia-label {
+    color: #4e342e;
+  }
+
+  .georgia-info {
+    color: #6d4c41;
+  }
+}

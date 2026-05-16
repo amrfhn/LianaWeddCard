@@ -1,26 +1,26 @@
 <template>
-  <v-container fluid class="pa-0">
+  <v-container fluid class="pa-0" :class="themeClass">
     <!-- section 1: main -->
     <v-row justify="center" align-content="space-around" class="scroll-section">
       <v-col class="text-center pt-10" cols="12">
         <p class="pb-16 text-body-1 georgia-label">Walimatulurus</p>
 
         <div>
-          <h2 class="text-h3 georgia-heading">Khaizuran</h2>
+          <h2 class="text-h3 georgia-heading">{{ config.groomName }}</h2>
           <h2 class="text-h2 font-malibu font-weight-bold">&</h2>
-          <h2 class="text-h3 georgia-heading">Natasha</h2>
+          <h2 class="text-h3 georgia-heading">{{ config.brideName }}</h2>
         </div>
 
         <div class="py-16">
-          <p class="text-body-1 georgia-info">Ahad, 5 Julai 2026</p>
-          <p class="text-body-1 georgia-info">Urban Park Hall, Alam Impian</p>
+          <p class="text-body-1 georgia-info">{{ config.dateDisplay }}</p>
+          <p class="text-body-1 georgia-info">{{ config.venue }}</p>
         </div>
 
-        <p class="text-h5 pt-12 font-brittany">#NatashAmiracleforKhai</p>
+        <p class="text-h5 pt-12 font-brittany">{{ config.hashtag }}</p>
       </v-col>
     </v-row>
 
-    <!-- section 2: welcoming  -->
+    <!-- section 2: welcoming -->
     <v-row justify="center" class="scroll-section">
       <v-col class="text-center">
         <p class="text-body-2 font-weight-bold font-georgia font-italic">
@@ -30,39 +30,60 @@
           dengan rasa penuh kesyukuran kehadrat Ilahi
         </p>
 
-        <h3 class="text-h7 font-weight-bold font-georgia text-uppercase">Datuk Abdullah bin Mat</h3>
-        <h3 class="text-h4 font-malibu">&</h3>
-        <h3 class="text-h7 font-weight-bold font-georgia text-uppercase">
-          Muhaizati binti Mohamed
-        </h3>
-        <p class="text-body-2 mt-1 font-italic font-georgia">(Ibu Bapa Pengantin Lelaki)</p>
+        <!-- Groom parents -->
+        <template v-if="config.groomParents.father && config.groomParents.mother">
+          <h3 class="text-h7 font-weight-bold font-georgia text-uppercase">{{ config.groomParents.father }}</h3>
+          <h3 class="text-h4 font-malibu">&</h3>
+          <h3 class="text-h7 font-weight-bold font-georgia text-uppercase">{{ config.groomParents.mother }}</h3>
+          <p class="text-body-2 mt-1 font-italic font-georgia">(Ibu Bapa Pengantin Lelaki)</p>
+        </template>
+        <template v-else-if="config.groomParents.mother">
+          <h3 class="text-h7 font-weight-bold font-georgia text-uppercase">{{ config.groomParents.mother }}</h3>
+          <p class="text-body-2 mt-1 font-italic font-georgia">(Ibu Pengantin Lelaki)</p>
+        </template>
+        <template v-else-if="config.groomParents.father">
+          <h3 class="text-h7 font-weight-bold font-georgia text-uppercase">{{ config.groomParents.father }}</h3>
+          <p class="text-body-2 mt-1 font-italic font-georgia">(Bapa Pengantin Lelaki)</p>
+        </template>
 
         <p class="font-italic my-2 font-georgia text-body-2">bersama</p>
 
-        <h3 class="text-h7 font-weight-bold font-georgia text-uppercase">Amelia binti Ishak</h3>
-        <p class="text-body-2 mt-1 mb-4 font-italic font-georgia">(Ibu Pengantin Perempuan)</p>
+        <!-- Bride parents -->
+        <template v-if="config.brideParents.father && config.brideParents.mother">
+          <h3 class="text-h7 font-weight-bold font-georgia text-uppercase">{{ config.brideParents.father }}</h3>
+          <h3 class="text-h4 font-malibu">&</h3>
+          <h3 class="text-h7 font-weight-bold font-georgia text-uppercase">{{ config.brideParents.mother }}</h3>
+          <p class="text-body-2 mt-1 mb-4 font-italic font-georgia">(Ibu Bapa Pengantin Perempuan)</p>
+        </template>
+        <template v-else-if="config.brideParents.mother">
+          <h3 class="text-h7 font-weight-bold font-georgia text-uppercase">{{ config.brideParents.mother }}</h3>
+          <p class="text-body-2 mt-1 mb-4 font-italic font-georgia">(Ibu Pengantin Perempuan)</p>
+        </template>
+        <template v-else-if="config.brideParents.father">
+          <h3 class="text-h7 font-weight-bold font-georgia text-uppercase">{{ config.brideParents.father }}</h3>
+          <p class="text-body-2 mt-1 mb-4 font-italic font-georgia">(Bapa Pengantin Perempuan)</p>
+        </template>
 
         <p class="text-body-2 font-georgia font-italic">
           dengan segala hormatnya menjemput<br />Yang Berbahagia
-          Dato’/Datuk/Datin/Tuan/Puan/Encik/Cik
+          Dato'/Datuk/Datin/Tuan/Puan/Encik/Cik
         </p>
-        <!-- <v-divider class="mt-10 mb-4 mx-auto" style="border-style: dotted; width: 70%" /> -->
         <p class="mb-4 text-body-2 font-georgia font-italic">
           ke walimatulurus putera dan puteri kami.
         </p>
 
         <h3 class="text-h6 font-weight-bold text-uppercase mt-6 font-georgia">
-          Khaizuran azim bin abdullah
+          {{ config.groomFullName }}
         </h3>
         <h3 class="text-h2 font-malibu">&</h3>
         <h3 class="text-h6 font-weight-bold text-uppercase mb-6 font-georgia">
-          natasha amiraliana binti mohd razif
+          {{ config.brideFullName }}
         </h3>
 
         <p class="mb-4 text-body-2 font-georgia font-italic">
-          Pada <span class="">Ahad, 5 Julai 2026</span><br />
-          Jam <span class="">11 pagi sehingga 3.30 petang</span><br />
-          Bertempat di <span class="">Urban Park Hall, Alam Impian</span>
+          Pada <span>{{ config.dateDisplay }}</span><br />
+          Jam <span>{{ config.timeDisplay }}</span><br />
+          Bertempat di <span>{{ config.venue }}</span>
         </p>
       </v-col>
     </v-row>
@@ -74,15 +95,13 @@
           <h4 class="text-body-1 georgia-info font-weight-bold mb-2 text-uppercase">
             Aturcara Majlis
           </h4>
-          <p class="text-body-2 mb-4 text-uppercase font-georgia font-italic">
-            11:00 AM - 3:30 PM <br /><span class="text-body-1 font-georgia text-uppercase"
-              >Ketibaan Tetamu dan Jamuan Makan</span
-            >
-          </p>
-          <p class="text-body-2">
-            12:00 PM <br /><span class="text-body-1 font-georgia text-uppercase font-italic"
-              >Ketibaan Pengantin</span
-            >
+          <p
+            v-for="(item, i) in config.agenda"
+            :key="i"
+            class="text-body-2 mb-4 text-uppercase font-georgia font-italic"
+          >
+            {{ item.time }}<br />
+            <span class="text-body-1 font-georgia text-uppercase">{{ item.label }}</span>
           </p>
         </div>
 
@@ -91,12 +110,12 @@
             Lokasi Majlis
           </h4>
           <p class="text-body-1 text-uppercase font-georgia font-italic">
-            Urban Park Hall, Alam Impian<br />Jalan Tun Teja 35/4a, 40470 Shah Alam, Selangor
+            {{ config.venue }}<br />{{ config.address }}
           </p>
 
           <div class="d-flex ga-3 justify-center mb-4">
             <v-btn
-              href="https://maps.app.goo.gl/MdXkuoBAjfyXjowDA"
+              :href="config.mapsUrl"
               target="_blank"
               color="primary"
               prepend-icon="mdi-google-maps"
@@ -105,7 +124,7 @@
               Maps
             </v-btn>
             <v-btn
-              href="https://ul.waze.com/ul?venue_id=66519070.665321775.37973731&overview=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
+              :href="config.wazeUrl"
               target="_blank"
               color="primary"
               prepend-icon="mdi-waze"
@@ -125,7 +144,7 @@
           <h4 class="text-body-1 font-weight-bold text-uppercase georgia-info mb-2">
             Save the Date!
           </h4>
-          <p class="text-h4 py-5 font-brittany">#NatashAmiracleforKhai</p>
+          <p class="text-h4 py-5 font-brittany">{{ config.hashtag }}</p>
           <countdown :time="timeLeft" format="DD:HH:mm:ss" class="pb-5">
             <template #="{ resolved }">
               <div class="d-flex ga-6 justify-center">
@@ -150,13 +169,13 @@
           </countdown>
 
           <AddToCalendar
-            name="Walimatulurus Khaizuran & Natasha"
-            location="Urban Park Hall, Alam Impian"
-            start-date="2026-07-05"
-            end-date="2026-07-05"
-            start-time="11:00"
-            end-time="15:30"
-            time-zone="Asia/Kuala_Lumpur"
+            :name="`Walimatulurus ${config.groomName} & ${config.brideName}`"
+            :location="config.venue"
+            :start-date="config.date"
+            :end-date="config.date"
+            :start-time="config.startTime"
+            :end-time="config.endTime"
+            :time-zone="config.timezone"
           />
         </div>
       </v-col>
@@ -226,8 +245,9 @@
           </p>
 
           <p class="text-h6 font-weight-bold text-uppercase mt-4 font-georgia">
-            Khaizuran Azim<br /><span class="font-malibu text-h4 font-weight-bold">&</span
-            ><br />Natasha Amiraliana
+            {{ config.prayerGroomName }}<br />
+            <span class="font-malibu text-h4 font-weight-bold">&</span><br />
+            {{ config.prayerBrideName }}
           </p>
 
           <p class="text-body-2 mt-4 font-georgia font-italic">
@@ -292,23 +312,19 @@ import AddWishForm from "@/components/AddWishForm.vue";
 import SectionSubTitle from "@/components/SectionSubTitle.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination } from "swiper/modules";
+import { useThemeLoader } from "@/composables/useThemeLoader";
+import type { WeddingConfig } from "@/types";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Swiper modules
+const props = defineProps<{ config: WeddingConfig }>();
+
+const { themeClass } = useThemeLoader(props.config.theme);
+
 const modules = [Navigation, Pagination];
 
 onMounted(() => {
-  // const sections = document.querySelectorAll(".scroll-section");
-  // sections.forEach((section) => {
-  //   ScrollTrigger.create({
-  //     trigger: section,
-  //     start: "top top",
-  //     pin: true,
-  //     pinSpacing: true,
-  //     scrub: 1,
-  //   });
-  // });
+  // ScrollTrigger animations can be added here
 });
 
 onUnmounted(() => {
@@ -316,11 +332,12 @@ onUnmounted(() => {
 });
 
 const timeLeft = computed(() => {
-  const wedding = new Date("2026-07-05T11:00:00+08:00").getTime();
+  const wedding = new Date(
+    `${props.config.date}T${props.config.startTime}:00+08:00`
+  ).getTime();
   return Math.max(0, wedding - Date.now());
 });
 
-// Wishes data - now reactive
 const wishes = ref([
   {
     name: "Ahmad & Siti",
@@ -348,9 +365,8 @@ const wishes = ref([
   },
 ]);
 
-// Add wish handler
 const handleAddWish = (wish: { name: string; message: string; date: string }) => {
-  wishes.value.unshift(wish); // Add to beginning of array
+  wishes.value.unshift(wish);
 };
 </script>
 
@@ -377,7 +393,7 @@ const handleAddWish = (wish: { name: string; message: string; date: string }) =>
 }
 
 .countdown-section {
-  padding:40px 0;
+  padding: 40px 0;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow:

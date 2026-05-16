@@ -15,15 +15,15 @@
 }
 
 .font-georgia {
-  font-family: "Georgia Pro Cond", "Georgia", serif !important;
+  font-family: var(--card-font-heading) !important;
 }
 
 .font-brittany {
-  font-family: "Brittany", cursive !important;
+  font-family: var(--card-font-script) !important;
 }
 
 .font-malibu {
-  font-family: "Malibu", sans-serif !important;
+  font-family: var(--card-font-ampersand) !important;
 }
 
 // Letter spacing utilities
@@ -37,20 +37,20 @@
 
 // Combined utilities for common patterns
 .georgia-heading {
-  font-family: "Georgia Pro Cond", "Georgia", serif !important;
+  font-family: var(--card-font-heading) !important;
   text-transform: uppercase !important;
   font-weight: 700 !important;
   letter-spacing: 5px !important;
 }
 
 .georgia-label {
-  font-family: "Georgia Pro Cond", "Georgia", serif !important;
+  font-family: var(--card-font-heading) !important;
   text-transform: uppercase !important;
   letter-spacing: 5px !important;
 }
 
 .georgia-info {
-  font-family: "Georgia Pro Cond", "Georgia", serif !important;
+  font-family: var(--card-font-heading) !important;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
 }

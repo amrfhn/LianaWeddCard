@@ -1,0 +1,18 @@
+// Traditional theme — Malay-inspired, deep green & gold
+// Vuetify colors are registered in vuetify.ts under theme name "traditional"
+
+.theme-traditional {
+  .countdown-section {
+    border-color: rgba(27, 94, 32, 0.2);
+    background: linear-gradient(135deg, #fffde7 0%, #f9f3d0 100%);
+  }
+
+  .georgia-heading,
+  .georgia-label {
+    color: #1b5e20;
+  }
+
+  .georgia-info {
+    color: #f9a825;
+  }
+}

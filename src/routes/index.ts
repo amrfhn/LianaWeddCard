@@ -4,7 +4,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: "/",
     name: "Home",
-    component: () => import("@/pages/HomePage.vue"),
+    component: () => import("@/pages/weddingKhaizuran.vue"),
   },
   {
     path: "/:pathMatch(.*)*",

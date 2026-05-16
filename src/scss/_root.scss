@@ -2,6 +2,11 @@
   --color-primary: #5c6bc0;
   --color-secondary: #424242;
   --app-max-width: 768px;
+
+  /* Card font roles — override per theme */
+  --card-font-heading: 'Georgia Pro Cond', 'Georgia', serif;
+  --card-font-script: 'Brittany', cursive;
+  --card-font-ampersand: 'Malibu', sans-serif;
 }
 
 body {
